@@ -14,7 +14,7 @@ Session 1 is the exception: read the gotchas checklist and leave its quiz closed
 
 ## Reset an exercise
 
-The five functions under `exercises/` are already solved, so `npm test` stays green. When a session names an exercise:
+The six functions under `exercises/` are already solved, so `npm test` stays green. When a session names an exercise:
 
 1. Replace the exported function body with `throw new Error("not implemented")`.
 2. Run the test file printed in that session.
@@ -480,6 +480,16 @@ Do: Compare the production check with bulk-actions. Confirm `App` calls `initial
 
 - [ ] Session 45
 
+## Session 46. Resolve page access from permissions
+
+Folder: `tracks/permissions/06-derived-page-access`
+
+Trace: `C:\Users\khaled.mahmoud\Desktop\Dsquares\promotion-engine-frontend\src\pages\ExportCouponPoolBatches\utility\resolveExportPageAccess.ts`
+
+Do: Reset resolvePageAccess and run its Vitest file. Contrast the derived active tab with an effect that repairs it, and note the fail-closed walker guard at the recursion root.
+
+- [ ] Session 46
+
 ## Progress
 
 - [ ] Session 1. Memorize the workspace gotchas
@@ -527,5 +537,6 @@ Do: Compare the production check with bulk-actions. Confirm `App` calls `initial
 - [ ] Session 43. Keycloak issuer is resolved per request
 - [ ] Session 44. Gotchas quiz
 - [ ] Session 45. Amplitude loads only in production
+- [ ] Session 46. Resolve page access from permissions
 
 When a later work session changes a pattern that shows up in more than one repo, or a shell, remote, or BFF contract, add or update the lab and add a session here.
