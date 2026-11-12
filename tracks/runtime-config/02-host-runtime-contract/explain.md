@@ -6,7 +6,8 @@ A remote built for one gateway must still call the API base the shell chose at r
 
 - `promotion-engine-frontend/src/runtime/hostApiConfig.ts` exports `getResolvedApiConfig` and `HOST_API_CONFIG_ERROR`.
 - Loyalty has the same idea in its runtime config and `BaseApi.tsx`.
-- Standalone injects loyalty and promotion runtime overrides from `src/app.config.ts`.
+- Standalone injects loyalty, promotion, and bulk-actions runtime overrides from `src/app.config.ts`.
+- Hosted bulk actions calls Kong directly. Local queue check is `https://dsquares-gateway.dsquares.tech/bff/externalservices/BulkActions/api/HealthCheck/CheckRabbitMaServer`. Auth refresh uses the same Kong `/bff` host.
 
 ## Shape
 
@@ -20,4 +21,4 @@ const authBaseUrl = normalizeHostBaseUrl(runtime?.promotionEngineAuthBaseUrl);
 
 ## What breaks if you skip it
 
-The remote calls a baked-in staging host while the shell is on preprod. A partial runtime object, or a URL with a query string, throws HOST_API_CONFIG_ERROR or falls back to the wrong base.
+The remote calls a baked-in staging host while the shell is on preprod. Promotion and loyalty fall back to app config when either runtime URL is missing. Bulk Actions does that only when neither bulk URL was supplied. If the host supplies one bulk URL, or a URL the normalizer rejects, `getResolvedApiConfig` throws `HOST_API_CONFIG_ERROR` and names `bulkActionsApiBaseUrl` or `bulkActionsAuthBaseUrl`. Ops Center still ignores the window runtime.

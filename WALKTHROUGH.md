@@ -112,9 +112,9 @@ Do: Write the loyalty key, URL, and permission path from standalone.
 
 Folder: `tracks/permissions/03-permission-path`
 
-Trace: `C:\Users\khaled.mahmoud\Desktop\Dsquares\ops-center\src\hooks\useCheckUserPermission.ts`
+Trace: `C:\Users\khaled.mahmoud\Desktop\Dsquares\promotion-engine-frontend\src\hooks\useCheckUserPermission.ts`
 
-Do: Reset checkPermission and run its Vitest file.
+Do: Reset checkPermission and run its Vitest file. Contrast Ops Center (missing path grants) with promo/bulk fail-closed hooks.
 
 - [ ] Session 9
 
@@ -468,6 +468,18 @@ Do: Open quiz.md now. Answer it with quiz.answers.md closed, then check yourself
 
 - [ ] Session 44
 
+## Session 45. Amplitude loads only in production
+
+Folder: `tracks/analytics/01-production-amplitude`
+
+Trace: `C:\Users\khaled.mahmoud\Desktop\Dsquares\promotion-engine-frontend\src\utility\amplitude.ts`
+
+Also: `C:\Users\khaled.mahmoud\Desktop\Dsquares\loyalty-transactions-frontend\src\utility\amplitude.ts`
+
+Do: Compare the production check with bulk-actions. Confirm `App` calls `initializeAmplitude()` with no argument, track is a no-op outside production, and promo and loyalty `trackingCatalog` files only allowslisted event properties.
+
+- [ ] Session 45
+
 ## Progress
 
 - [ ] Session 1. Memorize the workspace gotchas
@@ -514,5 +526,6 @@ Do: Open quiz.md now. Answer it with quiz.answers.md closed, then check yourself
 - [ ] Session 42. Controllers send a request, handlers do the work
 - [ ] Session 43. Keycloak issuer is resolved per request
 - [ ] Session 44. Gotchas quiz
+- [ ] Session 45. Amplitude loads only in production
 
 When a later work session changes a pattern that shows up in more than one repo, or a shell, remote, or BFF contract, add or update the lab and add a session here.

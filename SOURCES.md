@@ -16,6 +16,8 @@ Each lab points at the product file it was taken from. Update this list when you
 ## tracks/runtime-config/02-host-runtime-contract
 
 - `promotion-engine-frontend/src/runtime/hostApiConfig.ts`
+- `bulk-actions-frontend/src/runtime/hostApiConfig.ts`
+- `standalone-program-center/src/app.config.ts`
 
 ## tracks/runtime-config/03-bff-dev-proxy
 
@@ -46,6 +48,10 @@ Each lab points at the product file it was taken from. Update this list when you
 
 - `ops-center/src/hooks/useCheckUserPermission.ts`
 - `ops-center/src/utility/permissionsUtilities.ts`
+- `bulk-actions-frontend/src/hooks/useCheckUserPermission.ts`
+- `bulk-actions-frontend/src/utility/permissionsUtilities.ts`
+- `promotion-engine-frontend/src/hooks/useCheckUserPermission.ts`
+- `promotion-engine-frontend/src/utility/permissionsUtilities.ts`
 
 ## tracks/permissions/04-permission-context
 
@@ -194,6 +200,19 @@ Each lab points at the product file it was taken from. Update this list when you
 ## tracks/bff/03-keycloak-per-request-issuer
 
 - `dsq.programcenter.bff/src/DSQ.ProgramCenter.Bff.Api/Program.cs`
+
+## tracks/analytics/01-production-amplitude
+
+- `wallets-frontend/src/utility/amplitude.ts`
+- `bulk-actions-frontend/src/utility/amplitude.ts`
+- `bulk-actions-frontend/src/utility/tracking.ts`
+- `promotion-engine-frontend/src/utility/amplitude.ts`
+- `promotion-engine-frontend/src/utility/tracking.ts`
+- `promotion-engine-frontend/src/utility/trackingCatalog.ts`
+- `loyalty-transactions-frontend/src/utility/amplitude.ts`
+- `loyalty-transactions-frontend/src/utility/tracking.ts`
+- `loyalty-transactions-frontend/src/utility/trackingCatalog.ts`
+- `loyalty-transactions-frontend/src/App.tsx`
 
 ## Left out on purpose
 
