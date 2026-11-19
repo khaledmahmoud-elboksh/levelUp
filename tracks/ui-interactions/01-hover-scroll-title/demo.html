@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scroll an overflowing title on hover</title>
+    <style>
+      body {
+        max-width: 40rem;
+        margin: 3rem auto;
+        padding: 0 1rem;
+        font: 1rem/1.6 system-ui, sans-serif;
+        color: #182230;
+        background: #f5f7fa;
+      }
+
+      .lesson-title {
+        box-sizing: border-box;
+        display: block;
+        width: 18rem;
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-weight: 600;
+      }
+
+      .lesson-title span {
+        display: inline-block;
+      }
+
+      .lesson-title:focus-visible {
+        outline: 2px solid #165dcc;
+        outline-offset: 4px;
+      }
+
+      .lesson-title.is-scrolling {
+        text-overflow: clip;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .lesson-title:is(:hover, :focus) {
+          white-space: normal;
+          overflow-wrap: anywhere;
+        }
+      }
+
+      @media (hover: none) {
+        .lesson-title {
+          white-space: normal;
+          overflow-wrap: anywhere;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Scroll an overflowing title on hover</h1>
+      <p>Hover the long title, then move away. Try Tab and Shift+Tab too.</p>
+      <h2>Long title</h2>
+      <a class="lesson-title" href="#lesson">
+        <span>Scroll an overflowing lesson title on hover and restore its ellipsis on leave</span>
+      </a>
+      <h2>Short title</h2>
+      <a class="lesson-title" href="#lesson"><span>A short lesson title</span></a>
+      <p id="lesson">The links stay ordinary keyboard-accessible links.</p>
+    </main>
+    <script>
+      const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+      const canHover = matchMedia("(hover: hover)");
+
+      document.querySelectorAll(".lesson-title").forEach((title) => {
+        const text = title.querySelector("span");
+        let animation;
+        let hovered = false;
+        let focused = false;
+
+        function reset() {
+          animation?.cancel();
+          animation = undefined;
+          title.classList.remove("is-scrolling");
+        }
+
+        function update() {
+          if (!hovered && !focused) {
+            reset();
+            return;
+          }
+
+          const overflow = text.scrollWidth - title.clientWidth;
+          if (overflow <= 0 || reducedMotion.matches || !canHover.matches) {
+            reset();
+            return;
+          }
+          if (animation) return;
+
+          title.classList.add("is-scrolling");
+          animation = text.animate(
+            [
+              { transform: "translateX(0)" },
+              { transform: `translateX(-${overflow}px)` },
+            ],
+            {
+              duration: Math.max(600, (overflow / 40) * 1000),
+              delay: 300,
+              easing: "linear",
+              fill: "forwards",
+            },
+          );
+        }
+
+        title.addEventListener("mouseenter", () => {
+          hovered = true;
+          update();
+        });
+        title.addEventListener("mouseleave", () => {
+          hovered = false;
+          update();
+        });
+        title.addEventListener("focus", () => {
+          focused = true;
+          update();
+        });
+        title.addEventListener("blur", () => {
+          focused = false;
+          update();
+        });
+
+        function remeasure() {
+          reset();
+          update();
+        }
+
+        // Layout, font, and title changes can change the overflow distance.
+        const observer = new ResizeObserver(remeasure);
+        observer.observe(title);
+        observer.observe(text);
+        reducedMotion.addEventListener("change", remeasure);
+        canHover.addEventListener("change", remeasure);
+      });
+    </script>
+  </body>
+</html>

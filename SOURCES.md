@@ -214,6 +214,16 @@ Each lab points at the product file it was taken from. Update this list when you
 - `loyalty-transactions-frontend/src/utility/trackingCatalog.ts`
 - `loyalty-transactions-frontend/src/App.tsx`
 
+## tracks/ui-interactions/01-hover-scroll-title
+
+- `levelUp/tracks/ui-interactions/01-hover-scroll-title/demo.html`
+- Standalone lab inspired by the user's description of master.dev; not copied from or verified against that site's source.
+- [MDN: text-overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow)
+- [MDN: Element.animate](https://developer.mozilla.org/en-US/docs/Web/API/Element/animate)
+- [MDN: Animation.cancel](https://developer.mozilla.org/en-US/docs/Web/API/Animation/cancel)
+- [MDN: ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver)
+- [MDN: prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
+
 ## Left out on purpose
 
 These showed up in a repo and are not labs:

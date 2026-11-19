@@ -12,6 +12,8 @@ This gym lives at `C:\Users\khaled.mahmoud\Desktop\Dsquares\levelUp`. The real p
 
 Session 1 is the exception: read the gotchas checklist and leave its quiz closed. Session 44 is that quiz.
 
+Session 47 is a standalone browser interaction lab, not a trace of a sibling product repo.
+
 ## Reset an exercise
 
 The six functions under `exercises/` are already solved, so `npm test` stays green. When a session names an exercise:
@@ -490,6 +492,16 @@ Do: Reset resolvePageAccess and run its Vitest file. Contrast the derived active
 
 - [ ] Session 46
 
+## Session 47. Scroll an overflowing title on hover
+
+Folder: `tracks/ui-interactions/01-hover-scroll-title`
+
+Trace: `tracks/ui-interactions/01-hover-scroll-title/demo.html`
+
+Do: Open demo.html in a browser. Reveal the long title on hover and keyboard focus, restore the ellipsis on leave, and check the reduced-motion and touch fallbacks.
+
+- [ ] Session 47
+
 ## Progress
 
 - [ ] Session 1. Memorize the workspace gotchas
@@ -538,5 +550,6 @@ Do: Reset resolvePageAccess and run its Vitest file. Contrast the derived active
 - [ ] Session 44. Gotchas quiz
 - [ ] Session 45. Amplitude loads only in production
 - [ ] Session 46. Resolve page access from permissions
+- [ ] Session 47. Scroll an overflowing title on hover
 
 When a later work session changes a pattern that shows up in more than one repo, or a shell, remote, or BFF contract, add or update the lab and add a session here.
