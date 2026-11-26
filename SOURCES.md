@@ -63,6 +63,14 @@ Each lab points at the product file it was taken from. Update this list when you
 - `ops-center/src/App.tsx`
 - `ops-center/src/pages/Modules/AuthenticationModule/Login/Login.tsx`
 
+## tracks/permissions/06-derived-page-access
+
+- `promotion-engine-frontend/src/pages/ExportCouponPoolBatches/utility/resolveExportPageAccess.ts`
+- `promotion-engine-frontend/src/utility/permissionsUtilities.ts`
+- `promotion-engine-frontend/src/pages/CouponPools/utility/resolveDropdownItems.tsx`
+- `promotion-engine-frontend/src/hooks/useCheckUserPermission.ts`
+- `levelUp/exercises/derived-access/resolvePageAccess.ts`
+
 ## tracks/data-layer/01-base-query-layers
 
 - `loyalty-transactions-frontend/src/store/apis/BaseApi.tsx`
