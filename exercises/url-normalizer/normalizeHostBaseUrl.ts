@@ -15,15 +15,22 @@ function hasUnsafeBaseCharacters(value: string): boolean {
  */
 export function normalizeHostBaseUrl(input: unknown): string | undefined {
   if (typeof input !== "string") return undefined;
+
   const value = input.trim();
-  if (!value || hasUnsafeBaseCharacters(value)) return undefined;
+  if (value === "" || hasUnsafeBaseCharacters(value)) return undefined;
+
   const isRootRelative = value.startsWith("/") && !value.startsWith("//");
-  if (!isRootRelative && !/^https?:\/\/[^/]/i.test(value)) return undefined;
+  const isHttpUrl = /^https?:\/\/[^/]/i.test(value);
+  if (!isRootRelative && !isHttpUrl) return undefined;
+
+  let url: URL;
   try {
-    const url = new URL(value, "https://promotion-host.invalid");
-    if (url.username || url.password) return undefined;
-    return value.replace(/\/+$/, "") || "/";
+    url = new URL(value, "https://promotion-host.invalid");
   } catch {
     return undefined;
   }
+  if (url.username !== "" || url.password !== "") return undefined;
+
+  const withoutTrailingSlashes = value.replace(/\/+$/, "");
+  return withoutTrailingSlashes === "" ? "/" : withoutTrailingSlashes;
 }

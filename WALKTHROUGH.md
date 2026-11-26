@@ -78,7 +78,7 @@ Trace: `C:\Users\khaled.mahmoud\Desktop\Dsquares\promotion-engine-frontend\src\r
 
 Do: Reset normalizeHostBaseUrl and run its Vitest file.
 
-- [ ] Session 5
+- [x] Session 5
 
 ## Session 6. Two stores for the same token
 
@@ -508,7 +508,7 @@ Do: Open demo.html in a browser. Reveal the long title on hover and keyboard foc
 - [ ] Session 2. DEPLOYMENT_ENV and the two config files
 - [ ] Session 3. The host runtime URL contract
 - [ ] Session 4. Standalone dev proxy for /bff
-- [ ] Session 5. Normalize a host base URL
+- [x] Session 5. Normalize a host base URL
 - [ ] Session 6. Two stores for the same token
 - [ ] Session 7. ProtectedRoutes sends you to login or forbidden
 - [ ] Session 8. Menu key, URL, and permission path stay aligned
